@@ -41,29 +41,6 @@
 
 ```
 
-## Лістинг функції insert-imperative
-
-```lisp
-(defun insert-imperative (element sorted-vector vector-length)
-  (let ((i 0))
-    (loop while (< i vector-length)
-          while (< (aref sorted-vector i) element)
-          do (incf i))
-    (loop for j from (1- vector-length) downto i
-          do (setf (aref sorted-vector (1+ j)) (aref sorted-vector j)))
-    (setf (aref sorted-vector i) element)))
-
-(defun insert-sort-imperative (unsorted-list)
-  (let* ((list-length (length unsorted-list))
-         (sorted-vector (make-array list-length :initial-element nil))
-         (current-length 0))
-    (dolist (element unsorted-list)
-      (insert-imperative element sorted-vector current-length)
-      (incf current-length))
-    (subseq sorted-vector 0 current-length)))
-
-```
-
 ### Тестові набори першої частини
 
 ```lisp
