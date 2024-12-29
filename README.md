@@ -150,7 +150,7 @@ CL-USER> (reduce (add-prev-reducer :transform #'1+)
 
   ;; Тест 2: Список з від'ємними числами
   (check-add-prev-reducer "test 2" '(1 2 3) '((2 . NIL) (3 . 2) (4 . 3)) 
-                          (lambda (x) (+ x 1)))
+                          (lambda (x) (+ x 1))))
 ```
 ### Тестування другої частини 
 
